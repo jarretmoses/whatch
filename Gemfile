@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # OmniAuth Gems
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
