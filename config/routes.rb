@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :ratings
+
+  resources :users
+
   resources :movies
 
   # The priority is based upon order of creation: first created -> highest priority.
