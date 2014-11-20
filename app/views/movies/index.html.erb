@@ -1,14 +1,15 @@
-<% if current_user %>
-	<h1> Welcome to Whatch! </h1>
+<h1> Welcome to Whatch! </h1>
 
-	<h2> <%= @movie.title %> </h2> 
-
+<h2> <%= @movie.title %> </h2> 
 	<iframe width="560" height="315" src="//www.youtube.com/embed/<%= @movie.source_id %>" frameborder="0" allowfullscreen></iframe>
-	<div class="buttons">
-	  <%= button_to 'No', ratings_path, params: {score: 0, movie_id: @movie.id} %>
-	  <%= button_to 'Maybe', ratings_path, params: {score: 1, movie_id: @movie.id}%>
-	  <%= button_to 'Yes', ratings_path, params: {score: 2, movie_id: @movie.id} %>
-	</div>
+<% if current_user %>
+
+  <div class="buttons">
+
+    <%= button_to 'No', ratings_path, params: {score: 0, movie_id: @movie.id} %>
+    <%= button_to 'Maybe', ratings_path, params: {score: 1, movie_id: @movie.id}%>
+    <%= button_to 'Yes', ratings_path, params: {score: 2, movie_id: @movie.id} %>
+  </div>
 
 	<%= link_to 'My Movies!',list_path %>
 <% end %>
