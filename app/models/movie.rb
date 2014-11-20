@@ -27,10 +27,10 @@ class Movie < ActiveRecord::Base
   end
 
   def self.pick_movie
-    has_trailer = false
-    while !has_trailer
+    trailers = []
+    while trailers.empty?
       movie = self.get_movie(page_count)
-      has_trailer = movie["trailers"]
+      trailers = movie["trailers"]["youtube"]
     end
     build_movie(movie)
   end

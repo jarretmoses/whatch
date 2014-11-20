@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class MoviesController < ApplicationController  
   def index
     @movie = Movie.pick_movie
   end
