@@ -1,6 +1,9 @@
 require 'open-uri'
 
 class Movie < ActiveRecord::Base
+  has_many :ratings
+  has_many :users, through: :ratings
+
 
   def self.page_count
     result = JSON.parse(open("https://api.themoviedb.org/3/discover/movie?api_key=db59ec8dd4e4fb35231cdbe0ffbbd007&sort_by=vote_average.desc&vote_count.gte=15&vote_average.gte=7.5&page=1").read)
