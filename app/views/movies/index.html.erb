@@ -8,3 +8,5 @@
   <%= button_to 'Maybe', ratings_path, params: {score: 1, movie_id: @movie.id}%>
   <%= button_to 'Yes', ratings_path, params: {score: 2, movie_id: @movie.id} %>
 </div>
+
+<%= link_to 'My Movies!',list_path %>
