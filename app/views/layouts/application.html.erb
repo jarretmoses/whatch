@@ -11,9 +11,7 @@
 <%= link_to "Log In with Facebook", '/auth/facebook' %>
 <%= link_to "Log Out", logout_path, :method => :delete %>
 
-<% if current_user %><p>Hello, <%= current_user.name %>!</p><% end %>
-
-<%= yield %>
+<% if current_user %><%= yield %><% end %>
 
 </body>
 </html>
