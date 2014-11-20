@@ -1,20 +1,9 @@
-<h3>Yes!!</h3>
-<ul>
-<% @ratings_yes.each do |rating| %>
-  <li>
-     <%= rating.movie.title %>
-  </li>
-<% end %>
-</ul>
+<div id = "ratings">
+	<h3>Yes!!</h3>
+	<%= render 'list', :ratings => @ratings_yes %>
 
-<h3>Maybe</h3>
-<ul>
-<% @ratings_maybe.each do |rating| %>
-  <li>
-     <%= rating.movie.title %>
-  </li>
-<% end %>
-</ul>
+	<h3>Maybe</h3>
+	<%= render 'list', :ratings => @ratings_maybe %>
 
-<%= link_to 'Home', root_path %>
-
+	<%= link_to 'Home', root_path %>
+</div>
