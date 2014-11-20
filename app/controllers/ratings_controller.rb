@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   def create
     Rating.create(user_id: current_user.id, movie_id: params[:movie_id], score: params[:score])
     
-    redirect_to root_path
+    @movie = Movie.pick_movie
   end
 
   def index
