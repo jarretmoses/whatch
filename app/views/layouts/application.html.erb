@@ -7,14 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Log In with Twitter", '/auth/twitter' %>
-  <%= link_to "Log Out", logout_path, :method => :delete %>
+<div class="container">
+	<%= link_to "Log In with Twitter", '/auth/twitter' %> | 
+	<%= link_to "Log Out", logout_path, :method => :delete %>
 
-<% if current_user %>
-  <h3>Welcome, <%= current_user.name %>!</h3>
-<% end %>
+	<h1>Whatch</h1>
 
-<%= yield %>
-
+	<%= yield %>
+</div>
 </body>
 </html>
