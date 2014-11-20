@@ -11,7 +11,7 @@
   <%= link_to "Log Out", logout_path, :method => :delete %>
 
 <% if current_user %>
-  <h3>Welcome, @<%= current_user.name %>!</h3>
+  <h3>Welcome, <%= current_user.name %>!</h3>
 <% end %>
 
 <%= yield %>
