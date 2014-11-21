@@ -4,6 +4,8 @@ require 'pry'
 class Movie < ActiveRecord::Base
   has_many :ratings
   has_many :users, through: :ratings
+  has_many :movie_genres
+  has_many :genres, through: :movie_genres
 
   def get_amazon_link
     doc = Nokogiri::HTML(open("http://www.imdb.com/title/#{self.imdb_id}"))
@@ -30,6 +32,7 @@ class Movie < ActiveRecord::Base
   def self.build_movie(result)
     #taking the first genre of the movie
     genre     = result["genres"][0]["name"]
+    binding.pry
     title     = result["title"]
     rating    = result["vote_average"]
     imdb_id   = result["imdb_id"]
