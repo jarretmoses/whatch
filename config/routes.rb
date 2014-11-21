@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :ratings, only: [:create, :index, :update, :destroy]
   resources :movies, only: [:index]
 
+  get '/login', to: 'sessions#new', as: :new_login
   get '/list', to: 'ratings#index'
   get '/watch/:id', to: 'movies#watch', as: :watch
 
