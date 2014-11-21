@@ -1,7 +1,9 @@
 <ul class="list-group">
 <% ratings.each do |rating| %>
   <li class="list-group-item">
-     <%= rating.movie.title %>
+     <%= button_to '&#x2716'.html_safe, rating_path(rating), method: :delete %>
+     <%= rating.movie.title %> 
+     <%= button_to '&#x2714'.html_safe, rating_path(rating), method: :patch %>
   </li>
 <% end %>
 </ul>
