@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  resources :ratings
-
-  resources :users
-
-  resources :movies
+  resources :ratings, only: [:create, :index, :update, :destroy]
+  resources :movies, only: [:index]
 
   get '/list', to: 'ratings#index'
+  get '/watch/:id', to: 'movies#watch', as: :watch
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout'  => 'sessions#destroy'

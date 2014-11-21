@@ -1,9 +1,18 @@
 require 'open-uri'
+require 'pry'
 
 class Movie < ActiveRecord::Base
   has_many :ratings
   has_many :users, through: :ratings
 
+  def get_amazon_link
+    doc = Nokogiri::HTML(open("http://www.imdb.com/title/#{self.imdb_id}"))
+    if (!doc.css("section#watchbar2 a").empty?)
+      "http://www.imdb.com" + doc.css("section#watchbar2 a").attr("href").value
+    else
+      nil
+    end
+  end
 
   def self.page_count
     result = JSON.parse(open("https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['MOVIE_API']}&sort_by=vote_average.desc&vote_count.gte=15&vote_average.gte=7.5&page=1").read)
@@ -23,15 +32,23 @@ class Movie < ActiveRecord::Base
     genre     = result["genres"][0]["name"]
     title     = result["title"]
     rating    = result["vote_average"]
+    imdb_id   = result["imdb_id"]
     source_id = result["trailers"]["youtube"][0]["source"]
     poster    = "http://image.tmdb.org/t/p/w500" + result["poster_path"]
 
-    self.create(title: title, genre: genre, rating: rating, source_id: source_id, poster: poster)
+    parameters = {title: title, genre: genre, rating: rating, imdb_id: imdb_id, source_id: source_id, poster: poster}
+
+    self.find_or_create(parameters)
+  end
+
+  def self.find_or_create(parameters)
+    self.find_by(imdb_id: parameters["imdb_id"]) || self.create(parameters)
   end
 
   def self.pick_movie
     trailers = []
-    while trailers.empty?
+    movie = self.get_movie(page_count)
+    while trailers.empty? || (Movie.find_by(imdb_id: movie["imdb_id"]).users.include?(current_user) if Movie.find_by(imdb_id: movie["imdb_id"]))
       movie = self.get_movie(page_count)
       trailers = movie["trailers"]["youtube"]
     end
