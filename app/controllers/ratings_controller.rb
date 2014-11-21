@@ -10,18 +10,17 @@ class RatingsController < ApplicationController
   end
 
   def update
-  	rating = Rating.find(params[:id])
-  	rating.watched = true
-  	rating.save
+  	@rating = Rating.find(params[:id])
+  	@rating.watched = true
+  	@rating.save
 
-  	redirect_to ratings_path
   end
 
   def destroy
-  	rating = Rating.find(params[:id])
-  	rating.destroy
-
-  	redirect_to ratings_path
+  	@rating = Rating.find(params[:id])
+  	@rating.destroy
+ 
+  	render 'update.js.erb'
   end
 
 end
