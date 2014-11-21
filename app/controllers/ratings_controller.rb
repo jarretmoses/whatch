@@ -1,7 +1,9 @@
 class RatingsController < ApplicationController
   def create
-    Rating.create(user_id: current_user.id, movie_id: params[:movie_id], score: params[:score])    
-    @movie = Movie.pick_movie
+    if !Rating.find_by(user_id:current_user.id, movie_id:params[:movie_id])
+      Rating.create(user_id: current_user.id, movie_id: params[:movie_id], score: params[:score])    
+      @movie = Movie.pick_movie
+    end
   end
 
   def index
