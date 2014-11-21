@@ -31,17 +31,40 @@ class Movie < ActiveRecord::Base
 
   def self.build_movie(result)
     #taking the first genre of the movie
-    genre     = result["genres"][0]["name"]
-    binding.pry
-    title     = result["title"]
-    rating    = result["vote_average"]
-    imdb_id   = result["imdb_id"]
-    source_id = result["trailers"]["youtube"][0]["source"]
-    poster    = "http://image.tmdb.org/t/p/w500" + result["poster_path"]
+    genres     = result["genres"]
+    title      = result["title"]
+    rating     = result["vote_average"]
+    imdb_id    = result["imdb_id"]
+    source_id  = result["trailers"]["youtube"][0]["source"]
+    poster     = "http://image.tmdb.org/t/p/w500" + result["poster_path"]
 
-    parameters = {title: title, genre: genre, rating: rating, imdb_id: imdb_id, source_id: source_id, poster: poster}
+    parameters = {title: title, rating: rating, imdb_id: imdb_id, source_id: source_id, poster: poster}
 
-    self.find_or_create(parameters)
+    movie = self.find_or_create(parameters)
+    movie.build_genres(genres)
+    movie
+  end
+
+  def build_genres(genres)
+    genre_names = genres.map { |genre_hash| genre_hash["name"] }
+    genre_names.each do |name|
+      self.associate_or_create_genre(name)
+    end
+    self.save
+  end
+
+  def associate_or_create_genre(genre_name)
+    self.associate_genre(genre_name) || self.genres.build(name: genre_name)
+  end
+
+  def associate_genre(genre_name)
+     genre = Genre.find_by(name: genre_name)
+     if genre
+      genre.movies << self 
+      genre.save
+    else
+      false
+    end
   end
 
   def self.find_or_create(parameters)

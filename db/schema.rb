@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121201944) do
+ActiveRecord::Schema.define(version: 20141121202538) do
 
   create_table "genres", force: true do |t|
     t.string   "name"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20141121201944) do
 
   create_table "movies", force: true do |t|
     t.text     "title"
-    t.string   "genre"
     t.decimal  "rating"
     t.string   "source_id"
     t.string   "poster"
