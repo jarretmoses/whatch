@@ -1,0 +1,5 @@
+if (typeof("<%= j @link %>") == 'string'){
+  window.open("<%= j @link %>","_blank")
+}
+
+$('li[data-id="<%= @movie.id %>"]').children('a').blur();
