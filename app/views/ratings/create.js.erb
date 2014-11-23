@@ -1,3 +1,4 @@
 $('#trailer').empty().append("<%= j render @movie %>");
 $('input[name="movie_id"]').val("<%= j @movie.id.to_s %>");
 $("h2").text("<%= @movie.title %>");
+$('input.btn').blur()

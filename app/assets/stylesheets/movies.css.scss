@@ -21,13 +21,27 @@ html, #background {
 }
 
 nav {
-	width: 80%;
+	width: 100%;
+	background-color: black;
 	margin: 0 auto;
 	font-weight: 500;
 }
 
-.navbar-default {
+nav .container {
+	width: 80%;
+}
+
+.navbar-default.navbar-expanded, .navbar-inverse.navbar-expanded {
+	background-color: black;
 	border-color: transparent;
+}
+
+.navbar-fixed-top.navbar-expanded {
+	padding: 10px;
+}
+
+.img-responsive {
+	height: 100%;
 }
 
 #my_movies {
@@ -41,5 +55,5 @@ nav {
 	position:absolute;
 	bottom:0;
 	left:0;
-	background-color: transparent;
+	background-color: black;
 }
