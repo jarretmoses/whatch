@@ -126,7 +126,7 @@ hr.colored {
     color: #0a8fd5;
 }
 
-/*.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-inverse .navbar-nav>.active>a,
@@ -135,10 +135,10 @@ hr.colored {
     border-radius: 0;
     color: #0a8fd5;
     background-color: #fff;
-}*/
+}
 
 .navbar-default {
-    background-color: transparent;
+    background-color: #0a8fd5;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -150,20 +150,20 @@ hr.colored {
     background-color: rgba(255,255,255,.5);
 }
 
-/*.navbar-default .navbar-collapse,
+.navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
     border-color: rgba(255,255,255,.5);
-}*/
+}
 
 .navbar-inverse {
     background-color: #222;
 }
 
-/*.navbar-default,
+.navbar-default,
 .navbar-inverse {
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,.1);
-}*/
+}
 
 .navbar-default .navbar-brand,
 .navbar-inverse .navbar-brand {

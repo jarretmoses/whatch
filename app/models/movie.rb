@@ -68,7 +68,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.find_or_create(parameters)
-    self.find_by(imdb_id: parameters["imdb_id"]) || self.create(parameters)
+    self.find_by(imdb_id: parameters[:imdb_id]) || self.create(parameters)
   end
 
   def self.pick_movie
