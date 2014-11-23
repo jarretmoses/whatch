@@ -1,6 +1,9 @@
 class MoviesController < ApplicationController  
   def index
     @movie = Movie.pick_movie
+    while @movie.users.include?(current_user)
+      @movie = Movie.pick_movie
+    end
   end
 
   def watch

@@ -74,7 +74,7 @@ class Movie < ActiveRecord::Base
   def self.pick_movie
     trailers = []
     movie = self.get_movie(page_count)
-    while trailers.empty? || (Movie.find_by(imdb_id: movie["imdb_id"]).users.include?(current_user) if Movie.find_by(imdb_id: movie["imdb_id"]))
+    while trailers.empty?
       movie = self.get_movie(page_count)
       trailers = movie["trailers"]["youtube"]
     end
