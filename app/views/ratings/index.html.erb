@@ -28,7 +28,7 @@
                     <% @ratings_all.each do |rating| %>
                         <div class="portfolio <% if rating.score == 2 %>yes<% else %>maybe<% end %>" data-id="<%= rating.id %>" data-cat="" href="#portfolioModal1" data-toggle="modal">
                             <div class="portfolio-wrapper">
-                                <img src=<%= rating.movie.poster %> alt="">
+                                <%= link_to(image_tag(rating.movie.poster), watch_path(rating.movie), remote: true) %>
                                 <div class="caption">
                                     <div class="caption-text">
                                         <span class="text-category">
