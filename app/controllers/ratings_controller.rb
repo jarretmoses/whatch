@@ -13,6 +13,7 @@ class RatingsController < ApplicationController
     @ratings_yes = Rating.where(user_id: current_user.id, score: 2, watched: false)
     @ratings_maybe = Rating.where(user_id: current_user.id, score: 1, watched: false)
     @ratings_all = @ratings_yes + @ratings_maybe
+    @genres = Genre.all
   end
 
   def update
