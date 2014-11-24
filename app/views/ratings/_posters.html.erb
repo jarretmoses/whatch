@@ -1,5 +1,6 @@
 <% @ratings_all.each do |rating| %>
-    <div class="portfolio <% if rating.score == 2 %>yes<% else %>maybe<% end %>" data-id="<%= rating.id %>" data-cat="" href="#portfolioModal1" data-toggle="modal">
+    <div class="portfolio <% if rating.score == 2 %>yes<% else %>maybe<% end %>
+    <% rating.genres.each do |genre| %> <%= genre.name %> <% end %>" data-id="<%= rating.id %>" data-cat="" href="#portfolioModal1" data-toggle="modal">
         <div class="portfolio-wrapper">
             <%= link_to(image_tag(rating.movie.poster), watch_path(rating.movie), remote: true) %>
             <div class="caption">
@@ -13,4 +14,4 @@
             </div>
         </div>
     </div>
-<% end %>_posters.html.erb
+<% end %>
