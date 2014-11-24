@@ -32,7 +32,7 @@
 /* Orientation-dependent styles for the content of the menu */
 
 .cbp-spmenu-vertical {
-	width: 17%;
+	width: 190px;
 	height: 100%;
 	top: 0;
 	z-index: 1000;
