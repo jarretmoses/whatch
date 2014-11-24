@@ -10,8 +10,8 @@ class RatingsController < ApplicationController
   end
 
   def index
-    @ratings_yes = Rating.where(user_id: current_user.id, score: 2, watched: 0)
-    @ratings_maybe = Rating.where(user_id: current_user.id, score: 1, watched: 0)
+    @ratings_yes = Rating.where(user_id: current_user.id, score: 2, watched: false)
+    @ratings_maybe = Rating.where(user_id: current_user.id, score: 1, watched: false)
     @ratings_all = @ratings_yes + @ratings_maybe
   end
 
