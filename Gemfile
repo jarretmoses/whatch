@@ -35,6 +35,11 @@ gem 'autoprefixer-rails'
 
 gem 'nokogiri'
 
+gem 'owlcarousel-rails'
+
+gem 'less-rails'
+gem 'therubyracer'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,5 +60,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+end
+
+group :assets do
+  gem 'less'
 end
 

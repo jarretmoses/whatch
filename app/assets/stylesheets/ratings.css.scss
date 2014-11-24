@@ -7,3 +7,13 @@
 	margin: 0 auto;
 	margin-top: 5%;
 }
+
+#portfoliolist .portfolio{
+	float: none;
+	width: 20%;
+	background-position: center bottom;
+}
+
+#portfoliolist .portfolio .portfolio-wrapper .caption .caption-text {
+	padding: 1%;
+}
