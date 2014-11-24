@@ -1,1 +1,4 @@
-$('div[data-id="<%= j @rating.id.to_s %>"').remove();
+$('div[data-id="<%= j @rating.id.to_s %>"').fadeOut();
+setTimeout(function() {
+	$('div[data-id="<%= j @rating.id.to_s %>"').remove();
+}, 1000);
