@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
   	@rating = Rating.find(params[:id])
   	@rating.watched = true
   	@rating.save
-
+    
   end
 
   def destroy
