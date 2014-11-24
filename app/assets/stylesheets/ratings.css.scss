@@ -8,9 +8,14 @@
 	margin-top: 5%;
 }
 
+#portfoliolist {
+	width: 70%;
+	margin: 0 auto;
+}
+
 #portfoliolist .portfolio{
 	float: none;
-	width: 20%;
+	width: 30%;
 	background-position: center bottom;
 }
 
@@ -21,4 +26,24 @@
 .portfolio-filter #filters li .filter {
 	color: gray;
 	border-color: gray;
+}
+
+#showLeft {
+	display: block;
+	margin: 2px;
+	padding: 10px 15px;
+	border: 1px solid gray;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 900;
+	letter-spacing: 1px;
+	color: gray;
+	background: 0 0;
+	-webkit-transition: all .5s;
+	transition: all .5s;
+	cursor: pointer;
+}
+
+nav#cbp-spmenu-s1 {
+	overflow: auto;
 }
