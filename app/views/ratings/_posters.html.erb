@@ -1,0 +1,16 @@
+<% @ratings_all.each do |rating| %>
+    <div class="portfolio <% if rating.score == 2 %>yes<% else %>maybe<% end %>" data-id="<%= rating.id %>" data-cat="" href="#portfolioModal1" data-toggle="modal">
+        <div class="portfolio-wrapper">
+            <%= link_to(image_tag(rating.movie.poster), watch_path(rating.movie), remote: true) %>
+            <div class="caption">
+                <div class="caption-text">
+                    <span class="text-category">
+                        <%= button_to '&#x2716'.html_safe, rating_path(rating),remote: true, method: :delete, class: "btn btn-default" %>
+                        <%= button_to '&#x2714'.html_safe, rating_path(rating),remote: true, method: :patch, class: "btn btn-default" %>
+                    </span>
+                </div>
+                <div class="caption-bg"></div>
+            </div>
+        </div>
+    </div>
+<% end %>_posters.html.erb
