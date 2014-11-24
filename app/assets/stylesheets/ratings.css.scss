@@ -47,3 +47,29 @@
 nav#cbp-spmenu-s1 {
 	overflow: auto;
 }
+
+.active#showLeft {
+	border-color: #0a8fd5;
+	color: #fff;
+	background-color: #0a8fd5;
+}
+
+#cbp-spmenu-s1 a:hover,
+#cbp-spmenu-s1 a span.active,
+#cbp-spmenu-s1 a:visited {
+	color:white;
+}
+
+#cbp-spmenu-s1 a span.active {
+	font-weight: bold;
+	font-style: italic;
+}
+
+#cbp-spmenu-s1 a span {
+	padding: 5% 25%;
+}
+
+#cbp-spmenu-s1 span.filter {
+	width: 100%;
+	height: 100%;
+}
