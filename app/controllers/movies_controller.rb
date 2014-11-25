@@ -16,7 +16,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  def error
-    
+  def error    
   end
 end
