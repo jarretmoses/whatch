@@ -28,6 +28,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+gem 'twitter'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'bootstrap-sass', '~> 3.3.1'

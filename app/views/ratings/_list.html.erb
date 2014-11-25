@@ -3,7 +3,7 @@
   <li class="list-group-item", data-id = <%= rating.id %>>
      <%= button_to '&#x2716'.html_safe, rating_path(rating),remote: true, method: :delete %>
      <%= link_to(rating.movie.title, watch_path(rating.movie), remote: true) %>
-     <%= button_to '&#x2714'.html_safe, rating_path(rating),remote: true, method: :patch %>
+     <%= button_to '&#x2714'.html_safe, rating_path(rating), remote: true, method: :patch %>
   </li>
 <% end %>
 </ul>

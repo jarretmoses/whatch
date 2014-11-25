@@ -42,4 +42,5 @@ $(function(){
           classie.toggle( showLeft, 'disabled' );
       }
   }
+
 });
