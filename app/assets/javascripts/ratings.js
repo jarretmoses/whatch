@@ -15,7 +15,16 @@
 // });
 
 $(function(){
+
+  $('#cbp-spmenu-s1 a').click(function(e) {
+    $(this).children().click()
+  });
   
+  $('#cbp-spmenu-s1 a span').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+
   var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
       showLeft = document.getElementById( 'showLeft' ),
       body = document.body;
@@ -27,7 +36,6 @@ $(function(){
       classie.toggle( menuLeft, 'cbp-spmenu-open' );
       disableOther( 'showLeft' );
   };
-
    
   function disableOther( button ) {
       if( button !== 'showLeft' ) {
