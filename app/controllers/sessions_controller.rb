@@ -15,6 +15,10 @@ class SessionsController < ApplicationController
   protected
 
   def auth_hash
-    request.env['omniauth.auth']
+    info = request.env['omniauth.auth']
+    session[:token] = info["credentials"]["token"]
+    session[:secret] = info["credentials"]["secret"]
+    info
   end
+
 end
