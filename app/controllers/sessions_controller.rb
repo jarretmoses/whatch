@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:create, :new]
+  skip_before_action :set_client, only: [:create, :new, :destroy]
 
   def create
     @user = User.login_from_omniauth(auth_hash)
@@ -15,6 +16,10 @@ class SessionsController < ApplicationController
   protected
 
   def auth_hash
-    request.env['omniauth.auth']
+    info = request.env['omniauth.auth']
+    session[:token] = info["credentials"]["token"]
+    session[:secret] = info["credentials"]["secret"]
+    info
   end
+
 end
