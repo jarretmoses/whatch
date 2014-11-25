@@ -22,10 +22,10 @@ html, #background {
 }
 
 #reel {
-	background-image: image-url('reel.jpg');
-	background-size: auto 170%;
+	background-image: image-url('whatch_login.jpg');
+	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: 50% 70%; 
+	background-position: center; 
 }
 
 .button_to {
