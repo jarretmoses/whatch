@@ -1,4 +1,7 @@
 class RatingsController < ApplicationController
+
+  before_action :get_ratings, only: [:index, :lucky]
+
   def create
     if !Rating.find_by(user_id:current_user.id, movie_id:params[:movie_id])
       Rating.create(user_id: current_user.id, movie_id: params[:movie_id], score: params[:score])    
@@ -10,9 +13,6 @@ class RatingsController < ApplicationController
   end
 
   def index
-    @ratings_yes = Rating.where(user_id: current_user.id, score: 2, watched: false)
-    @ratings_maybe = Rating.where(user_id: current_user.id, score: 1, watched: false)
-    @ratings_all = @ratings_yes + @ratings_maybe
     @genres = Genre.order(name: :asc)
   end
 
@@ -30,5 +30,27 @@ class RatingsController < ApplicationController
  
   	render 'update.js.erb'
   end
+
+  def lucky
+    @choice = @ratings_all.sample
+    @ratings_all.delete(@choice)
+    while !@ratings_all.empty? && !@choice.movie.get_amazon_link
+      @choice = @ratings_all.sample
+      @ratings_all.delete(@choice)
+    end
+    if @choice
+      redirect_to @choice.movie.get_amazon_link
+    else
+      redirect_to error_path
+    end
+  end
+
+  private
+
+    def get_ratings
+      @ratings_yes = Rating.where(user_id: current_user.id, score: 2, watched: false)
+      @ratings_maybe = Rating.where(user_id: current_user.id, score: 1, watched: false)
+      @ratings_all = @ratings_yes + @ratings_maybe
+    end
 
 end
