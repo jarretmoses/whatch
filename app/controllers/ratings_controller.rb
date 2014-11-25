@@ -20,6 +20,7 @@ class RatingsController < ApplicationController
   	@rating = Rating.find(params[:id])
   	@rating.watched = true
   	@rating.save
+    @client.update("I just whatched #{@rating.movie.title} @WHATCHapp")
     
   end
 
