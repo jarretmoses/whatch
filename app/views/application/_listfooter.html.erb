@@ -1,0 +1,6 @@
+<div id="list-footer">
+   <%= form_tag(email_path, method: 'get', remote: true) do %>
+     <%= text_field_tag(:email,nil,autocomplete: :off, placeholder: 'Email your list...') %>
+     <%= submit_tag("Submit", id: 'ebutton') %>
+   <% end %>
+</div>
