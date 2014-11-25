@@ -33,12 +33,16 @@ class ApplicationController < ActionController::Base
 
     def set_client
       if logged_in?
-        @client = Twitter::REST::Client.new do |config|
-          config.consumer_key        = ENV['TWITTER_KEY']
-          config.consumer_secret     = ENV['TWITTER_SECRET']
-          config.access_token        = session[:token]
-          config.access_token_secret = session[:secret]
-        end
+        @client = create_client
+      end
+    end
+
+    def create_client
+      Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_KEY']
+        config.consumer_secret     = ENV['TWITTER_SECRET']
+        config.access_token        = session[:token]
+        config.access_token_secret = session[:secret]
       end
     end
 		helper_method :current_user
