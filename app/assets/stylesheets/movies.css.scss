@@ -19,13 +19,21 @@ html, #background {
 
 .container {
 	text-align: center;
+	padding: 0;
 }
 
 #reel {
-	background-image: image-url('whatch_login.jpg');
-	background-size: contain;
+	background-image: image-url('login.jpg');
+	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center; 
+	background-position: bottom;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+}
+
+header .brand-name {
+	padding-top: 30%;
 }
 
 .button_to {
