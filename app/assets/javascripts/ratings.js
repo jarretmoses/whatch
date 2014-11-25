@@ -18,7 +18,7 @@ $(function(){
   
   var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
       showLeft = document.getElementById( 'showLeft' ),
-      body = document.body;
+      body     = document.body;
    
   showLeft.onclick = function(e) {
       e.preventDefault();
