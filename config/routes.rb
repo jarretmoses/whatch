@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: :new_login
   get '/list', to: 'ratings#index'
   get '/watch/:id', to: 'movies#watch', as: :watch
+  get '/email', to: 'users#email', as: :email
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
