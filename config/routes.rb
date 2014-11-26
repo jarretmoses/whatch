@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/lucky', to: 'ratings#lucky', as: :lucky
   get '/error', to: 'movies#error', as: :error
   get '/about', to: 'movies#about', as: :about
+  get '/reset', to: 'movies#reset', as: :reset
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout'  => 'sessions#destroy'

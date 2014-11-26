@@ -28,7 +28,7 @@
 	border-color: gray;
 }
 
-#showLeft, #whatchMe {
+#showLeft, #whatchMe, #resetMe {
 	display: block;
 	margin: 2px;
 	padding: 10px 15px;
@@ -42,6 +42,10 @@
 	-webkit-transition: all .5s;
 	transition: all .5s;
 	cursor: pointer;
+}
+
+#resetMe {
+	display: inline;
 }
 
 nav#cbp-spmenu-s1 {

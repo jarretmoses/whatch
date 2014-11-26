@@ -18,4 +18,8 @@ class MoviesController < ApplicationController
 
   def error    
   end
+
+  def reset
+    current_user.ratings.destroy_all
+  end
 end
