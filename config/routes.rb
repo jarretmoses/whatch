@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: :new_login
   get '/list', to: 'ratings#index'
+
   get '/watch/:id', to: 'movies#watch', as: :watch
   get '/email', to: 'users#email', as: :email
   get '/lucky', to: 'ratings#lucky', as: :lucky
   get '/error', to: 'movies#error', as: :error
+  get '/about', to: 'movies#about', as: :about
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
