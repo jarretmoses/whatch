@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :ratings
   has_many :movies, through: :ratings
+  has_many :genres, through: :movies
 
   def self.login_from_omniauth(auth_hash)
     find_from_omniauth(auth_hash) || create_with_omniauth(auth_hash)    
