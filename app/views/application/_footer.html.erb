@@ -1,5 +1,6 @@
 <div id="footer">
 	<% if current_user %>
+    <div id="title"><%= @movie.title %></div>
 	  <div class="buttons">
 	    <%= button_to 'No', ratings_path, params: {score: 0, movie_id: @movie.id}, remote: true, method: :post, class: "btn btn-default" %>
 	    <%= button_to 'Maybe', ratings_path, params: {score: 1, movie_id: @movie.id}, remote: true, method: :post, class: "btn btn-default"%>
