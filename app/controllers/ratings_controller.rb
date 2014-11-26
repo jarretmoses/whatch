@@ -13,7 +13,9 @@ class RatingsController < ApplicationController
   end
 
   def index
-    @genres = Genre.order(name: :asc)
+    # @movies = current_user.movies
+    @genres = @ratings_all.map {|movie| movie.genres}
+    @genres.flatten!.uniq!.sort!{|a, b| a.name <=> b.name}
   end
 
   def update
