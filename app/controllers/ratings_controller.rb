@@ -15,7 +15,7 @@ class RatingsController < ApplicationController
   def index
     # @movies = current_user.movies
     @genres = @ratings_all.map {|movie| movie.genres}
-    @genres.flatten!.uniq!.sort!{|a, b| a.name <=> b.name}
+    @genres.flatten!.uniq!.sort!{|a, b| a.name <=> b.name} if !@genres.empty?
   end
 
   def update
