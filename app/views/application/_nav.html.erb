@@ -25,18 +25,15 @@
                 <li>
                     <%= link_to "About", about_path %>
                 </li>
-                <% if !current_user %>
-                    <li>
-                        <%= link_to "Log In with Twitter", '/auth/twitter' %>
-                    </li>
-                <% else %>
-                    <li>
-                        <%= link_to 'My Movies', list_path, id: "my_movies" %>
-                    </li>
-                    <li>
-                        <%= link_to "Log Out", logout_path, :method => :delete %>
-                    </li>
-                <% end %>
+                <li>
+                    <%= link_to 'My Movies', list_path, id: "my_movies" %>
+                </li>
+                <li>
+                    <%= link_to "Help", help_path %>
+                </li>
+                <li>
+                    <%= link_to "Log Out", logout_path, :method => :delete %>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
