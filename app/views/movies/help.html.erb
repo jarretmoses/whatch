@@ -1,0 +1,37 @@
+<br><br><br>
+
+<h2>How To Use Whatch</h2>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <h5>Home Page</h5>
+  <hr class="colored help-colored">
+  </div>
+  <div class="panel-body">
+    When logging into WHATCH, you will be redirected to your home page, which will automatically start a trailer for you.<br><br>
+     As a user, you simply need to whatch the trailer and decide whether or not you wish to whatch that film in the future. To do this, just click on the 'Yes', 'Maybe', or 'No' buttons.<br><br>
+      If you click on 'Yes' or 'Maybe' these films will be saved to your personalized movie list. To view your list of saved movies click on the 'My Movies' link in the navigation bar
+  </div>
+  <div class="panel-heading">
+    <h5>My Movies Page</h5>
+    <hr class="colored help-colored">
+  </div>
+  <div class="panel-body">
+    The My Movies page will list all movies that you have rated 'Yes' or 'Maybe'. You can sort these movies by your rating and by genre. Click on a movie's poster for more information about that movie!<br><br>
+
+    Once you’ve whatched a movie, hover over the movie poster and click on the check button to remove the movie from your list and share with your followers on Twitter. To simply remove a movie from your list, hover over its poster and click on the ‘x’ button.<br><br>
+
+    If you’re feeling lucky, click ‘WhatchMe’ for more information about a random movie!
+  </div>
+  <div class="panel-heading">
+    <h5>Troubleshooting</h5>
+    <hr class="colored help-colored">
+  </div>
+  <div class="panel-body">
+    If you are having any trouble with trailers or you simply want to remove all movies you have rated, click this: <br>
+    <%= link_to button_tag("Reset", id: "resetMe"), reset_path, remote: :true %>
+    <br>
+     Warning: This will remove all movies form your list and add them back into the trailers queue for you to whatch.
+  </div>
+</div>
+
+
