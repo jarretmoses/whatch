@@ -13,9 +13,12 @@ class RatingsController < ApplicationController
   end
 
   def index
-    # @movies = current_user.movies
     @genres = @ratings_all.map {|movie| movie.genres}
-    @genres.flatten!.uniq!.sort!{|a, b| a.name <=> b.name} if !@genres.empty?
+    if !@genres.empty?
+      #check if .uniq changes genres or they're already uniq
+     @genres = @genres.flatten.uniq || @genres.flatten
+     @genres.sort!{|a, b| a.name <=> b.name} 
+    end
   end
 
   def update
