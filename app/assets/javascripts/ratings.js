@@ -17,7 +17,7 @@
 $(function(){
 
   $('#cbp-spmenu-s1 a').click(function(e) {
-    $(this).children().click()
+    $(this).children().click();
   });
   
   $('#cbp-spmenu-s1 a span').click(function(e) {
