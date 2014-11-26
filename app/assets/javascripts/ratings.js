@@ -43,4 +43,11 @@ $(function(){
       }
   }
 
+  $('#list-footer').hide();
+
+  $('#emailMe').on('click', function(){
+    $('#list-footer').slideToggle();
+    $(this).blur();
+  });
+
 });

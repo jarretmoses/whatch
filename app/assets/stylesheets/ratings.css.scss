@@ -28,7 +28,7 @@
 	border-color: gray;
 }
 
-#showLeft, #whatchMe, #resetMe {
+#showLeft, #whatchMe, #resetMe, #emailMe {
 	display: block;
 	margin: 2px;
 	padding: 10px 15px;
@@ -114,4 +114,8 @@ nav#cbp-spmenu-s1 {
  background-color: #2a9fd6 ;
  border-color: #2a9fd6 ;
  color: white;
+}
+
+#list-footer form input {
+	font-family: Raleway, sans-serif;
 }
