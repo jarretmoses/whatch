@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'pry'
 
 class Movie < ActiveRecord::Base
   has_many :ratings
