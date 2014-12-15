@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'pry'
 
 class Movie < ActiveRecord::Base
   has_many :ratings
@@ -8,8 +9,8 @@ class Movie < ActiveRecord::Base
 
   def get_amazon_link
     doc = Nokogiri::HTML(open("http://www.imdb.com/title/#{self.imdb_id}"))
-    if (!doc.css("section#watchbar2 a").empty?)
-      "http://www.imdb.com" + doc.css("section#watchbar2 a").attr("href").value
+    if (!doc.css("div.watchbar2 a").empty?)
+      "http://www.imdb.com" + doc.css("div.watchbar2 a").attr("href").value
     else
       nil
     end
