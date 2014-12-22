@@ -8,10 +8,17 @@ Rails.application.routes.draw do
   get '/watch/:id', to: 'movies#watch',  as: :watch
   get '/email',     to: 'users#email',   as: :email
   get '/lucky',     to: 'ratings#lucky', as: :lucky
-  get '/error',     to: 'movies#error',  as: :error
-  get '/about',     to: 'movies#about',  as: :about
-  get '/reset',     to: 'movies#reset',  as: :reset
-  get '/help',      to: 'movies#help',   as: :help 
+  # get '/error',     to: 'movies#error',  as: :error
+  # get '/about',     to: 'movies#about',  as: :about
+  # get '/reset',     to: 'movies#reset',  as: :reset
+  # get '/help',      to: 'movies#help',   as: :help 
+
+  scope controller: :movies do 
+    get '/error',     to: :error,  as: :error
+    get '/about',     to: :about,  as: :about
+    get '/reset',     to: :reset,  as: :reset
+    get '/help',      to: :help,   as: :help 
+  end
 
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
